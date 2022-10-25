@@ -1,0 +1,35 @@
+FROM ubuntu:20.04
+LABEL author="chris.collins@is4s.com"
+LABEL maintainer="chris.collins@is4s.com"
+
+RUN apt-get update && DEBIAN_FRONTEND="noninteractive" apt-get -y install tzdata
+
+RUN apt-get update && apt-get install -q -y \
+  # PNT-Integrity Dependencies
+  cmake \
+  build-essential \
+  git \
+  libeigen3-dev \
+  libfftw3-dev \
+  qtdeclarative5-dev \
+  qtwebengine5-dev \
+  libqt5charts5-dev \
+  # PNT-Integrity-Toolkit Additional Dependencies
+  libboost-all-dev \
+  libyaml-cpp-dev \
+  libuhd-dev \
+  # libuhd0003 \
+  uhd-host \
+  # Convenience utilites
+  clang-format \
+  trash-cli
+
+# Add the dev user
+RUN adduser --disabled-password --gecos "" dev
+RUN adduser dev sudo
+RUN echo '%sudo ALL=(ALL) NOPASSWD:ALL' >> /etc/sudoers
+
+# Configuration and start up
+WORKDIR /home/dev/sipnt_ws
+RUN chown -R dev /home/dev/sipnt_ws
+USER dev

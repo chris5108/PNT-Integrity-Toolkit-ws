@@ -1,0 +1,6 @@
+[submodule "Docker/PNT-Integrity-Toolkit"]
+	path = PNT-Integrity-Toolkit
+	url = git@github.com:cisagov/PNT-Integrity-Toolkit.git
+[submodule "PNT-Integrity-Toolkit"]
+	path = PNT-Integrity-Toolkit
+	url = git@github.com:cisagov/PNT-Integrity-Toolkit.git

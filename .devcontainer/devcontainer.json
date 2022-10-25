@@ -1,0 +1,37 @@
+{
+  "name": "PNT-Integrity-ws-20.04",
+  "image": "ghcr.io/chris5108/ubuntu20.04-pnt-integrity-toolkit:latest",
+  // "name": "PNT-Integrity-ws-22.04",
+  // "image": "ghcr.io/chris5108/ubuntu22.04-pnt-integrity-toolkit:latest",
+  "extensions": [
+	"ms-vscode.cpptools",
+	"ms-vscode.cpptools-extension-pack",
+	"ms-vscode.cmake-tools",
+	"twxs.cmake",
+	"donjayamanne.git-extension-pack"
+],
+  "runArgs": [
+      "--privileged",  
+      "--cap-add", "SYS_ADMIN",
+      "--cap-add", "SYS_PTRACE",
+      "--security-opt", "seccomp=unconfined",
+      "--network", "host",
+      "-v", "${localEnv:HOME}${env:USERPROFILE}/.ssh:/home/dev/.ssh:ro",
+      "-v", "${localEnv:HOME}${env:USERPROFILE}/devel/code_format:/home/dev/code_format:ro"
+      // The argument above allows code_format to be run from within the container as long
+      // as the path is correct to your local code_format workspace and you symlink the
+      // .clang-format file to your HOME directory by doing the following:
+      //   cd ..
+      //   ln -s code_format/.clang-format ./.clang-format
+      // You will need the Microsoft C/C++ Intellisense and Exteions Pack installed in
+      // your dev container. Once you have the symlink, the .clang_format file will be
+      // in the default search path, which is between the workspace root folder and the 
+      // system root folder. There should be no additional setup.
+      // "-v", "/var/run/dbus:/var/run/dbus"
+  ],
+  "settings": {
+      "terminal.integrated.shell.linux": "/bin/bash"
+  },
+  "workspaceMount": "src=${localWorkspaceFolder},dst=/home/dev/PNT-Integrity-ws,type=bind,consistency=cached",
+  "workspaceFolder": "/home/dev/PNT-Integrity-ws"
+}
