@@ -5,7 +5,7 @@ jobs:
   build-ubuntu-jammy:
     runs-on: ubuntu-22.04
     container: 
-      image: ghcr.io/chris5108/ubuntu22.04-pnt-integrity-toolkit
+      image: ghcr.io/chris5108/ubuntu22.04-pnt-integrity-toolkit:latest
       credentials: 
         username: ${{ github.actor }}
         password: ${{ secrets.github_token }}
