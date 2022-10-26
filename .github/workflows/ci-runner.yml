@@ -7,8 +7,8 @@ jobs:
     container: 
       image: ghcr.io/chris5108/ubuntu22.04-pnt-integrity-toolkit
       credentials: 
-        username: {{ github.actor }}
-        password: ${{ secrets.GITHUB_TOKEN }}
+        username: ${{ github.actor }}
+        password: ${{ secrets.github_token }}
     steps:
       - 
         name: Build the Docker image
