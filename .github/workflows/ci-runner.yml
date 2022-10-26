@@ -9,5 +9,13 @@ jobs:
     runs-on: ubuntu-22.04
     container: ghcr.io/chris5108/ubuntu22.04-pnt-integrity-toolkit
     steps:
-    - name: Build the Docker image
-      run: ./PNT-Integrity-Toolkit/build.sh
+      -
+        name: GHCR Login
+        uses: docker/login-action@v2
+        with:
+          registry: ghcr.io
+          username: ${{ github.actor }}
+          password: ${{ secrets.GITHUB_TOKEN }}
+      - 
+        name: Build the Docker image
+        run: ./PNT-Integrity-Toolkit/build.sh
