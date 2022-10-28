@@ -12,7 +12,7 @@ jobs:
     steps:
       - 
         name: Build the Docker image
-        run: cd /home/github/pnt_integrity_toolkit_ws/PNT-Integrity-Toolkit && ./build.sh
+        run: ls && cd /home/github/pnt_integrity_toolkit_ws && ./build.sh
   
   build-ubuntu-focal:
     runs-on: ubuntu-20.04
