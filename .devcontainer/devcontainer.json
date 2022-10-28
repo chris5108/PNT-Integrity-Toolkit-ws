@@ -1,8 +1,10 @@
 {
-  "name": "PNT-Integrity-ws-20.04",
-  "image": "ghcr.io/chris5108/ubuntu20.04-pnt-integrity-toolkit:latest",
-  // "name": "PNT-Integrity-ws-22.04",
-  // "image": "ghcr.io/chris5108/ubuntu22.04-pnt-integrity-toolkit:latest",
+  // "name": "PNT-Integrity-ws-18.04",
+  // "image": "ghcr.io/chris5108/ubuntu18.04-pnt-integrity-toolkit:latest",
+  // "name": "PNT-Integrity-ws-20.04",
+  // "image": "ghcr.io/chris5108/ubuntu20.04-pnt-integrity-toolkit:latest",
+  "name": "PNT-Integrity-ws-22.04",
+  "image": "ghcr.io/chris5108/ubuntu22.04-pnt-integrity-toolkit:latest",
   "extensions": [
 	"ms-vscode.cpptools",
 	"ms-vscode.cpptools-extension-pack",

@@ -1,12 +1,19 @@
-FROM ubuntu:22.04
+FROM ubuntu:18.04
 LABEL author="chris.collins@is4s.com"
 LABEL maintainer="chris.collins@is4s.com"
 
-RUN apt-get update && DEBIAN_FRONTEND="noninteractive" apt-get -y install tzdata
 
-RUN apt-get update && apt-get install -q -y \
+RUN apt-get update
+RUN DEBIAN_FRONTEND="noninteractive" 
+RUN apt-get -q -y install \
+  tzdata \
+  sudo \
+  locales
+
+RUN apt-get install -q -y \
   # PNT-Integrity Dependencies
   cmake \
+  pkg-config \
   build-essential \
   git \
   libeigen3-dev \
@@ -20,7 +27,9 @@ RUN apt-get update && apt-get install -q -y \
   libuhd-dev \
   uhd-host \
   # Convenience utilites
+  lsb-release \
   clang-format \
+  apt-utils \
   trash-cli
 
 # Add the dev user

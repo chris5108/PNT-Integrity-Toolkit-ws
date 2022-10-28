@@ -18,7 +18,6 @@ RUN apt-get update && apt-get install -q -y \
   libboost-all-dev \
   libyaml-cpp-dev \
   libuhd-dev \
-  # libuhd0003 \
   uhd-host \
   # Convenience utilites
   clang-format \
@@ -30,6 +29,6 @@ RUN adduser dev sudo
 RUN echo '%sudo ALL=(ALL) NOPASSWD:ALL' >> /etc/sudoers
 
 # Configuration and start up
-WORKDIR /home/dev/sipnt_ws
-RUN chown -R dev /home/dev/sipnt_ws
+WORKDIR /home/dev/pnt_integrity_toolkit_ws
+RUN chown -R dev /home/dev/pnt_integrity_toolkit_ws
 USER dev
