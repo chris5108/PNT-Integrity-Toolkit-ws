@@ -1,0 +1,39 @@
+name: CI Runner
+on: push
+
+jobs:
+  build-ubuntu-jammy:
+    runs-on: ubuntu-22.04
+    container: 
+      image: ghcr.io/chris5108/ubuntu22.04-pnt-integrity-toolkit:latest
+      credentials: 
+        username: ${{ github.actor }}
+        password: ${{ secrets.github_token }}
+    steps:
+      - 
+        name: Build the Docker image
+        run: ./PNT-Integrity-Toolkit/build.sh
+  
+  build-ubuntu-focal:
+    runs-on: ubuntu-20.04
+    container: 
+      image: ghcr.io/chris5108/ubuntu20.04-pnt-integrity-toolkit:latest
+      credentials: 
+        username: ${{ github.actor }}
+        password: ${{ secrets.github_token }}
+    steps:
+      - 
+        name: Build the Docker image
+        run: ./PNT-Integrity-Toolkit/build.sh
+        
+  build-ubuntu-bionic:
+    runs-on: ubuntu-18.04
+    container: 
+      image: ghcr.io/chris5108/ubuntu18.04-pnt-integrity-toolkit:latest
+      credentials: 
+        username: ${{ github.actor }}
+        password: ${{ secrets.github_token }}
+    steps:
+      - 
+        name: Build the Docker image
+        run: ./PNT-Integrity-Toolkit/build.sh
